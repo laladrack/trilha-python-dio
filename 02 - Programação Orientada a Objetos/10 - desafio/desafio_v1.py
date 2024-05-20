@@ -1,6 +1,4 @@
 from abc import ABC, abstractclassmethod, abstractproperty
-from datetime import datetime
-
 
 class Cliente:
     def __init__(self, endereco):
@@ -15,10 +13,9 @@ class Cliente:
 
 
 class PessoaFisica(Cliente):
-    def __init__(self, nome, data_nascimento, cpf, endereco):
+    def __init__(self, nome, cpf, endereco):
         super().__init__(endereco)
         self.nome = nome
-        self.data_nascimento = data_nascimento
         self.cpf = cpf
 
 
@@ -128,7 +125,6 @@ class Historico:
             {
                 "tipo": transacao.__class__.__name__,
                 "valor": transacao.valor,
-                "data": datetime.now().strftime("%d-%m-%Y %H:%M:%s"),
             }
         )
 
